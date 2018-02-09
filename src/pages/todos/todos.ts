@@ -1,6 +1,14 @@
+import { AddTaskModalPage } from "./../add-task-modal/add-task-modal";
+import { TodoModel } from "./../../shared/todo.model";
+
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { TodoModel } from "../../shared/todo.model";
+
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ModalController
+} from "ionic-angular";
 
 /**
  * Generated class for the TodosPage page.
@@ -17,7 +25,11 @@ import { TodoModel } from "../../shared/todo.model";
 export class TodosPage {
   public todos: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+  ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad TodosPage");
@@ -38,5 +50,20 @@ export class TodosPage {
 
   toggleTodo(todo: TodoModel) {
     return (todo.isDone = !todo.isDone);
+  }
+
+  showAddTodo() {
+    const modal = this.modalCtrl.create(AddTaskModalPage);
+    modal.present();
+
+    modal.onDidDismiss(data => {
+      if (data) {
+        this.addTodo(data);
+      }
+    });
+  }
+
+  addTodo(todo: TodoModel) {
+    this.todos.push(todo);
   }
 }
