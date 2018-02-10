@@ -61,4 +61,13 @@ export class TodosPage {
   removeTodo(todo: TodoModel) {
     this.todoService.removeTodo(todo);
   }
+
+  showEditTodo(todo: TodoModel) {
+    const modal = this.modalCtrl.create(AddTaskModalPage, { todo });
+    modal.present();
+
+    modal.onDidDismiss(data => {
+      // update todo
+    });
+  }
 }

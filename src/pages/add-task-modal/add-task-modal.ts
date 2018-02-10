@@ -1,7 +1,7 @@
+import { TodoModel } from "./../../shared/todo.model";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { ViewController } from "ionic-angular/navigation/view-controller";
-import { TodoModel } from "../../shared/todo.model";
 
 /**
  * Generated class for the AddTaskModalPage page.
@@ -22,7 +22,11 @@ export class AddTaskModalPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController
-  ) {}
+  ) {
+    if (this.navParams.get("todo")) {
+      this.model = TodoModel.clone(this.navParams.get("todo"));
+    }
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AddTaskModalPage");
