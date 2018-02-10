@@ -1,3 +1,4 @@
+import { TodoService } from "./../../shared/todo-service";
 import { AddTaskModalPage } from "./../add-task-modal/add-task-modal";
 import { TodoModel } from "./../../shared/todo.model";
 
@@ -23,21 +24,15 @@ import {
   templateUrl: "todos.html"
 })
 export class TodosPage {
-  public todos: any[];
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public todoService: TodoService
   ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad TodosPage");
-    this.todos = [
-      new TodoModel("This one an element", true, false),
-      new TodoModel("This two an element", true, false),
-      new TodoModel("This three an element", true, false)
-    ];
   }
 
   setTodoStyles(todo: TodoModel) {
@@ -48,22 +43,22 @@ export class TodosPage {
     return styles;
   }
 
-  toggleTodo(todo: TodoModel) {
-    return (todo.isDone = !todo.isDone);
-  }
-
   showAddTodo() {
     const modal = this.modalCtrl.create(AddTaskModalPage);
     modal.present();
 
     modal.onDidDismiss(data => {
       if (data) {
-        this.addTodo(data);
+        this.todoService.addTodo(data);
       }
     });
   }
 
-  addTodo(todo: TodoModel) {
-    this.todos.push(todo);
+  toggleTodo(todo: TodoModel) {
+    this.todoService.toggleTodo(todo);
+  }
+
+  removeTodo(todo: TodoModel) {
+    this.todoService.removeTodo(todo);
   }
 }
