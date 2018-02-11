@@ -36,8 +36,8 @@
 
     <ion-item-divider *ngIf="(todoService.todos | doneTodosPipe).length > 0"> Done Tasks</ion-item-divider>
     <ion-item *ngFor="let todo of todoService.todos | doneTodosPipe" [ngStyle]="setTodoStyles(todo)">
-      <ion-label>{{ todo.description }}</ion-label>
-      <ion-checkbox [checked]="todo.isDone" (click)="toggleTodo(todo)"></ion-checkbox>
+      <ion-label color="light">{{ todo.description }}</ion-label>
+      <ion-checkbox color="light" [checked]="todo.isDone" (click)="toggleTodo(todo)"></ion-checkbox>
     </ion-item>
   </ion-list>
 
