@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-
+  <h3>My lists</h3>
   <ion-list>
     <ion-item-sliding *ngFor="let todo of todoService.todos | prioritizedTodosPipe">
       <ion-item [ngStyle]="setTodoStyles(todo)">

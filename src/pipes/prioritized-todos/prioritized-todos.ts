@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from "@angular/core";
  */
 @Pipe({
   name: "prioritizedTodosPipe",
-  pure: false
+  pure: true
 })
 export class PrioritizedTodosPipe implements PipeTransform {
   transform(todos: TodoModel[]) {

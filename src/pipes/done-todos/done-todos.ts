@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from "@angular/core";
  */
 @Pipe({
   name: "doneTodosPipe",
-  pure: false
+  pure: true
 })
 export class DoneTodosPipe implements PipeTransform {
   transform(todos: TodoModel[]) {
