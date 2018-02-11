@@ -67,7 +67,8 @@ export class TodosPage {
     modal.present();
 
     modal.onDidDismiss(data => {
-      if(data){
+      if (data) {
+        console.log("Data to be updated => ", data);
         this.todoService.updateTodo(todo, data);
       }
     });

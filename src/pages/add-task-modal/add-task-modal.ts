@@ -17,6 +17,8 @@ import { ViewController } from "ionic-angular/navigation/view-controller";
 })
 export class AddTaskModalPage {
   public model = new TodoModel("");
+  public title: string = "Add new Task";
+  public buttonText: string = "Add";
 
   constructor(
     public navCtrl: NavController,
@@ -25,6 +27,8 @@ export class AddTaskModalPage {
   ) {
     if (this.navParams.get("todo")) {
       this.model = TodoModel.clone(this.navParams.get("todo"));
+      this.title = "Edit task";
+      this.buttonText = "Save changes";
     }
   }
 
@@ -33,10 +37,10 @@ export class AddTaskModalPage {
   }
 
   dismiss() {
-    this.viewCtrl.dismiss(this.model);
+    this.viewCtrl.dismiss();
   }
 
   submit() {
-    this.dismiss();
+    this.viewCtrl.dismiss(this.model);
   }
 }
