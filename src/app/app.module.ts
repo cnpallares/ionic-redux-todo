@@ -1,3 +1,4 @@
+import { DoneTodosPipe } from "./../pipes/done-todos/done-todos";
 import { TodoService } from "./../shared/todo-service";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { BrowserModule } from "@angular/platform-browser";
@@ -13,7 +14,13 @@ import { MyApp } from "./app.component";
 import { PrioritizedTodosPipe } from "../pipes/prioritized-todos/prioritized-todos";
 
 @NgModule({
-  declarations: [MyApp, TodosPage, AddTaskModalPage, PrioritizedTodosPipe],
+  declarations: [
+    MyApp,
+    TodosPage,
+    AddTaskModalPage,
+    PrioritizedTodosPipe,
+    DoneTodosPipe
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
