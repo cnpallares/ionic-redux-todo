@@ -38,7 +38,7 @@ export class TodosPage {
   setTodoStyles(todo: TodoModel) {
     let styles = {
       "text-decoration": todo.isDone ? "line-through" : "none",
-      "font-weight": todo.isImportant ? "font-weight" : "600"
+      "font-weight": todo.isImportant ? "600" : "normal"
     };
     return styles;
   }
