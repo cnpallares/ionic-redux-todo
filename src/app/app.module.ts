@@ -1,3 +1,4 @@
+import { ListsPage } from "./../pages/lists/lists";
 import { DoneTodosPipe } from "./../pipes/done-todos/done-todos";
 import { TodoService } from "./../shared/todo-service";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
@@ -19,7 +20,8 @@ import { PrioritizedTodosPipe } from "../pipes/prioritized-todos/prioritized-tod
     TodosPage,
     AddTaskModalPage,
     PrioritizedTodosPipe,
-    DoneTodosPipe
+    DoneTodosPipe,
+    ListsPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { PrioritizedTodosPipe } from "../pipes/prioritized-todos/prioritized-tod
     HttpClientModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, TodosPage, AddTaskModalPage],
+  entryComponents: [MyApp, TodosPage, AddTaskModalPage, ListsPage],
   providers: [
     StatusBar,
     SplashScreen,

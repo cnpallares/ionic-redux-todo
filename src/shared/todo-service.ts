@@ -1,6 +1,7 @@
+import { Injectable } from "@angular/core";
 import { Platform } from "ionic-angular";
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+
 import { TodoModel } from "./todo.model";
 
 /*
@@ -13,7 +14,7 @@ import { TodoModel } from "./todo.model";
 export class TodoService {
   private todos: TodoModel[] = [];
 
-  constructor(public http: HttpClient, private platform: Platform) {
+  constructor(public http: HttpClient) {
     console.log("Hello TodoServiceProvider Provider");
   }
 
@@ -25,21 +26,19 @@ export class TodoService {
   }
 
   toggleTodo(todo: TodoModel) {
-    setTimeout(() => {
-      const isDone = !todo.isDone;
-      const index = this.todos.indexOf(todo);
-      const toggledTodo = new TodoModel(
-        todo.description,
-        isDone,
-        todo.isImportant
-      );
+    const isDone = !todo.isDone;
+    const index = this.todos.indexOf(todo);
+    const toggledTodo = new TodoModel(
+      todo.description,
+      isDone,
+      todo.isImportant
+    );
 
-      this.todos = [
-        ...this.todos.slice(0, index),
-        toggledTodo,
-        ...this.todos.slice(index + 1)
-      ];
-    }, this.platform.is("ios") ? 0 : 300);
+    this.todos = [
+      ...this.todos.slice(0, index),
+      toggledTodo,
+      ...this.todos.slice(index + 1)
+    ];
   }
 
   removeTodo(todo: TodoModel) {

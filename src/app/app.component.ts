@@ -1,6 +1,8 @@
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { TodosPage } from "../pages/todos/todos";
+import { ListsPage } from "../pages/lists/lists";
+
 import { Component } from "@angular/core";
 import { Platform } from "ionic-angular";
 
@@ -8,7 +10,7 @@ import { Platform } from "ionic-angular";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = TodosPage;
+  rootPage: any = ListsPage;
 
   constructor(
     platform: Platform,
