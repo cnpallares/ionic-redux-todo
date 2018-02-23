@@ -1,3 +1,4 @@
+import { ListsService } from "./../shared/lists-service";
 import { ListsPage } from "./../pages/lists/lists";
 import { DoneTodosPipe } from "./../pipes/done-todos/done-todos";
 import { TodoService } from "./../shared/todo-service";
@@ -35,7 +36,8 @@ import { PrioritizedTodosPipe } from "../pipes/prioritized-todos/prioritized-tod
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    TodoService
+    TodoService,
+    ListsService
   ]
 })
 export class AppModule {}
