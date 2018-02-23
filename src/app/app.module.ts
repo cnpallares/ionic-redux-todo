@@ -15,6 +15,7 @@ import { HttpModule } from "@angular/http";
 
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { StatusBar } from "@ionic-native/status-bar";
     MyApp
   ],
   imports: [
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     BrowserModule,

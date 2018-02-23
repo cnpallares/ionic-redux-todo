@@ -37,7 +37,9 @@ export class ListsPage implements OnInit {
   }
 
   addNewList = (name: string) => {
-    this.listService.addList(name);
+    const list = this.listService.addList(name);
+    this.listService.saveLocally();
+    this.goToList(list);
   };
 
   showAddList() {

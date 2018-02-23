@@ -4,12 +4,13 @@ import { HttpClient } from "@angular/common/http";
 
 import { TodoModel } from "./todo.model";
 import { ListModel } from "./list-mode";
+import { Storage } from "@ionic/storage";
 
 @Injectable()
 export class TodoService {
   private todos: TodoModel[] = [];
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public localStorage: Storage) {
     console.log("Hello TodoServiceProvider Provider");
   }
 
