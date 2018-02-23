@@ -1,5 +1,3 @@
-import { ListsService } from "./../../shared/lists-service";
-import { TodosPage } from "./../todos/todos";
 import { Component, OnInit } from "@angular/core";
 import {
   IonicPage,
@@ -9,12 +7,8 @@ import {
   AlertOptions
 } from "ionic-angular";
 
-/**
- * Generated class for the ListsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ListService } from "./../../shared/lists-service";
+import { TodosPage } from "./../todos/todos";
 
 @IonicPage()
 @Component({
@@ -23,10 +17,10 @@ import {
 })
 export class ListsPage implements OnInit {
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
     public alertCtrl: AlertController,
-    public listService: ListsService
+    public listService: ListService,
+    public navCtrl: NavController,
+    public navParams: NavParams
   ) {}
 
   ngOnInit() {
@@ -42,7 +36,6 @@ export class ListsPage implements OnInit {
   }
 
   addNewList = (name: string) => {
-    console.log("Name added: ", name);
     this.listService.addList(name);
   };
 
@@ -64,7 +57,6 @@ export class ListsPage implements OnInit {
         {
           text: "Add",
           handler: data => {
-            console.log("Handler data => ", data);
             this.addNewList(data.name);
           }
         }
