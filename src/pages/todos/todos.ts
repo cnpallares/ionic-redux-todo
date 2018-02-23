@@ -11,13 +11,7 @@ import {
   ModalController,
   Platform
 } from "ionic-angular";
-
-/**
- * Generated class for the TodosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ListModel } from "../../shared/list-mode";
 
 @IonicPage()
 @Component({
@@ -26,13 +20,18 @@ import {
 })
 export class TodosPage {
   private toogleTodoTimeout = null;
+  private list: ListModel;
+
   constructor(
     public modalCtrl: ModalController,
     public todoService: TodoService,
     public navCtrl: NavController,
     public navParams: NavParams,
     private platform: Platform
-  ) {}
+  ) {
+    this.list = this.navParams.get("list");
+    this.todoService.loadTodos(this.list);
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad TodosPage");

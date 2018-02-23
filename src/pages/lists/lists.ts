@@ -9,6 +9,7 @@ import {
 
 import { ListService } from "./../../shared/list-service";
 import { TodosPage } from "./../todos/todos";
+import { ListModel } from "../../shared/list-mode";
 
 @IonicPage()
 @Component({
@@ -31,8 +32,8 @@ export class ListsPage implements OnInit {
     console.log("ionViewDidLoad ListsPage");
   }
 
-  goToList() {
-    this.navCtrl.push(TodosPage);
+  goToList(list: ListModel) {
+    this.navCtrl.push(TodosPage, { list });
   }
 
   addNewList = (name: string) => {

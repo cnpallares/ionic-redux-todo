@@ -3,13 +3,8 @@ import { Platform } from "ionic-angular";
 import { HttpClient } from "@angular/common/http";
 
 import { TodoModel } from "./todo.model";
+import { ListModel } from "./list-mode";
 
-/*
-  Generated class for the TodoServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class TodoService {
   private todos: TodoModel[] = [];
@@ -18,10 +13,11 @@ export class TodoService {
     console.log("Hello TodoServiceProvider Provider");
   }
 
+  loadTodos(list: ListModel) {
+    this.todos = [];
+  }
+
   addTodo(todo: TodoModel) {
-    // impure add todo
-    // this.todos.push(todo);
-    // pure add todo
     this.todos = [...this.todos, todo];
   }
 
