@@ -7,7 +7,7 @@ import {
   AlertOptions
 } from "ionic-angular";
 
-import { ListService } from "./../../shared/lists-service";
+import { ListService } from "./../../shared/list-service";
 import { TodosPage } from "./../todos/todos";
 
 @IonicPage()

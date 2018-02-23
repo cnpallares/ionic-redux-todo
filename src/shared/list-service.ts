@@ -7,7 +7,6 @@ export class ListService {
   public lists: ListModel[] = [];
 
   constructor(public http: HttpClient) {
-    console.log("Hello ListsServiceProvider Provider");
     this.getLists();
   }
 
